@@ -40,6 +40,11 @@ class DB:
 		with self.connection.cursor() as cursor:
 			cursor.execute(real_sql)
 			self.connection.commit()
+#通用语句
+	def general(self,real_sql):
+		with self.connection.cursor() as cursor:
+			cursor.execute(real_sql)
+			self.connection.commit()
 # close database
 	def close(self):
 		self.connection.close()
