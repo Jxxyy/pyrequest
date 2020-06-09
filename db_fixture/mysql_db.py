@@ -1,3 +1,4 @@
+
 import pymysql.cursors
 import os
 import configparser as cparser
@@ -37,6 +38,11 @@ class DB:
 		value = ','.join(table_data.values())
 		real_sql = "INSERT INTO " + table_name + " (" + key + ") VALUES (" + value+ ")"
 #print(real_sql)
+		with self.connection.cursor() as cursor:
+			cursor.execute(real_sql)
+			self.connection.commit()
+#通用语句
+	def general(self,real_sql):
 		with self.connection.cursor() as cursor:
 			cursor.execute(real_sql)
 			self.connection.commit()
