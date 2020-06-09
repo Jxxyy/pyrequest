@@ -14,7 +14,6 @@ class AddEventTest(unittest.TestCase):
 #所有参数为空
 		payload = {'eid':'','name':'','limit':'','address':'','start_time':''}
 		r = requests.post(self.base_url, data=payload)
-		print (r.json())
 		self.result = r.json()
 		self.assertEqual(self.result['status'], 10021)
 		self.assertEqual(self.result['message'], 'parameter error')
